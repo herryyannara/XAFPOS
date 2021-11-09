@@ -28,6 +28,7 @@ using DevExpress.ExpressApp.WebApi.Swashbuckle;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.OData;
 using XAFPOS.WebApi.JWT;
+using XAFPOS.Module.BusinessObjects;
 
 namespace XAFPOS.Blazor.Server {
     public class Startup {
@@ -91,6 +92,8 @@ namespace XAFPOS.Blazor.Server {
             });
             services.AddXafWebApi(options => {
                 // Use options.BusinessObject<YourBusinessObject>() to make the Business Object available in the Web API and generate the GET, POST, PUT, and DELETE HTTP methods for it.
+                options.BusinessObject<ApplicationUser>();
+                options.BusinessObject<Brand>();
             });
             services.AddControllers().AddOData(options => {
                 options
