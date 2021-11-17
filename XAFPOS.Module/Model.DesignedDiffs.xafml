@@ -1,11 +1,27 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="XAFPOS">
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Merchandise">
+        <Items>
+          <Item Id="UnitOfMeasure_ListView" Index="0" />
+          <Item Id="Brand_ListView" Index="1" />
+          <Item Id="Department_ListView" Index="2" />
+          <Item Id="SubDepartment_ListView" Index="3" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="21.2.2.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="21.2.2.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
   </Views>

@@ -14,15 +14,15 @@ using System.Text;
 
 namespace XAFPOS.Module.BusinessObjects
 {
-    [DefaultClassOptions]
+    [NavigationItem("Merchandise")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class Brand : BaseObject
+    public class Article : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public Brand(Session session)
+        public Article(Session session)
             : base(session)
         {
         }
@@ -41,7 +41,7 @@ namespace XAFPOS.Module.BusinessObjects
         //}
 
         private string _Code;
-        [Size(10)]
+        [Size(20)]
         [Indexed(Unique = true)]
         [RuleRequiredField(DefaultContexts.Save)]
         public string Code
@@ -57,6 +57,54 @@ namespace XAFPOS.Module.BusinessObjects
         {
             get { return _Name; }
             set { SetPropertyValue(nameof(Name), ref _Name, value); }
+        }
+
+        private UnitOfMeasure _UnitOfMeasure;
+        [RuleRequiredField(DefaultContexts.Save)]
+        public UnitOfMeasure UnitOfMeasure
+        {
+            get { return _UnitOfMeasure; }
+            set { SetPropertyValue(nameof(UnitOfMeasure), ref _UnitOfMeasure, value); }
+        }
+
+        private Brand _Brand;
+        [RuleRequiredField(DefaultContexts.Save)]
+        public Brand Brand
+        {
+            get { return _Brand; }
+            set { SetPropertyValue(nameof(Brand), ref _Brand, value); }
+        }
+
+        private Department _Department;
+        [RuleRequiredField(DefaultContexts.Save)]
+        public Department Department
+        {
+            get { return _Department; }
+            set { SetPropertyValue(nameof(Department), ref _Department, value); }
+        }
+
+        private SubDepartment _SubDepartment;
+        [RuleRequiredField(DefaultContexts.Save)]
+        public SubDepartment SubDepartment
+        {
+            get { return _SubDepartment; }
+            set { SetPropertyValue(nameof(SubDepartment), ref _SubDepartment, value); }
+        }
+
+        private Category _Category;
+        [RuleRequiredField(DefaultContexts.Save)]
+        public Category Category
+        {
+            get { return _Category; }
+            set { SetPropertyValue(nameof(Category), ref _Category, value); }
+        }
+
+        private SubCategory _SubCategory;
+        [RuleRequiredField(DefaultContexts.Save)]
+        public SubCategory SubCategory
+        {
+            get { return _SubCategory; }
+            set { SetPropertyValue(nameof(SubCategory), ref _SubCategory, value); }
         }
 
         //private string _PersistentProperty;        
